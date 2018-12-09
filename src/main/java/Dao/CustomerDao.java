@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class CustomerDao {
 
-  private Connection conn;
+  protected Connection conn;
 
   public CustomerDao(Connection c) {
     conn = c;
