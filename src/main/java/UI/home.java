@@ -27,6 +27,8 @@ public class home {
         frame.setVisible(true);
         frame.setBounds(100,100,650,400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        if(!this.isAdmin)
+            this.buttonAdmin.setEnabled(false);
 
         buttonCoures.addMouseListener(new MouseAdapter() {
             @Override
@@ -55,12 +57,7 @@ public class home {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                if(isAdmin){
-                    Admin admin = new Admin();
-                }else {
-                    Information info = new Information();
-                    info.label.setText("没有权限");
-                }
+                Admin admin = new Admin();
             }
         });
     }

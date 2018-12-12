@@ -1,10 +1,14 @@
 package UI;
 
+import Dao.AdminDao;
+import Dao.CustomerDao;
 import Model.Student;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class Admin {
     private JPanel panel;
@@ -21,18 +25,25 @@ public class Admin {
     private JTextField textField4;
     private JTextField textField5;
     private JTextField textField6;
+    private Connection conn;
 
 
     public Admin() {
         JFrame frame = new JFrame("添加学生信息");
         frame.setContentPane(panel);
         frame.setVisible(true);
-        frame.setBounds(100,100,500,400);
+        frame.setBounds(100, 100, 500, 400);
 
         button1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+
+                try {
+                    init();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
 
                 String sid = textField1.getText();
                 String sname = textField2.getText();
@@ -40,16 +51,29 @@ public class Admin {
                 int age = Integer.parseInt(textField4.getText());
                 int year = Integer.parseInt(textField5.getText());
                 double gpa = Double.parseDouble(textField6.getText());
-                Student ns = new Student(sid,sname,sex,age,year,gpa);
+                Student ns = new Student(sid, sname, sex, age, year, gpa);
 
-                if(true){
-                    Information infoS = new Information();
-                    infoS.label.setText("学生信息添加成功");
-                }else{
+                AdminDao dao = new AdminDao(conn);
+                try {
+                    if (dao.addStudent(ns)) {
+                        Information infoS = new Information();
+                        infoS.label.setText("学生信息添加成功");
+                    } else {
+                        Information infoF = new Information();
+                        infoF.label.setText("学生信息添加失败");
+                    }
+                } catch (Exception e1) {
                     Information infoF = new Information();
-                    infoF.label.setText("学生信息添加失败");
+                    infoF.label.setText(e1.getMessage());
                 }
+
             }
         });
+
+    }
+
+    public void init() throws Exception {
+        conn = DriverManager.getConnection(
+                "jdbc:ucanaccess://university.accdb");
     }
 }
