@@ -3,6 +3,7 @@ package UI;
 import Dao.CustomerDao;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -23,6 +24,9 @@ public class Dept {
         frame.setBounds(100,100,300,300);
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
+        Button1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        Button2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 
         Button1.addMouseListener(new MouseAdapter() {

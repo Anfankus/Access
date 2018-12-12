@@ -5,6 +5,7 @@ import Dao.CustomerDao;
 import Model.Student;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -29,6 +30,8 @@ public class Admin {
 
 
     public Admin() {
+
+        button1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         JFrame frame = new JFrame("添加学生信息");
         frame.setContentPane(panel);
         frame.setVisible(true);

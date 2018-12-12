@@ -40,7 +40,7 @@
         <properties>
           <actionCommand value="登录"/>
           <background color="-1"/>
-          <text value="登陆"/>
+          <text value="登录"/>
         </properties>
       </component>
       <component id="aed75" class="javax.swing.JButton" binding="buttonNoman">
@@ -49,7 +49,7 @@
         </constraints>
         <properties>
           <background color="-1"/>
-          <text value="游客登录"/>
+          <text value="访客"/>
         </properties>
       </component>
       <component id="39a71" class="javax.swing.JTextField" binding="textField1" default-binding="true">

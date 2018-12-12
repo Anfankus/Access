@@ -1,13 +1,14 @@
 package UI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 public class home {
-    private JButton buttonIntroduce;
     private JButton buttonCoures;
+    private JButton buttonIntroduce;
     private JButton buttonInfo;
     private JButton buttonCount;
     private JButton buttonAdmin;
@@ -22,6 +23,13 @@ public class home {
 
     public home(boolean ia){
         isAdmin = ia;
+
+        buttonIntroduce.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonAdmin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonCount.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonCoures.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonInfo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
         JFrame frame = new JFrame("大学数据库查询系统");
         frame.setContentPane(jpanel1);
         frame.setVisible(true);

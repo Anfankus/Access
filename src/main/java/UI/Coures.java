@@ -4,6 +4,7 @@ import Dao.CustomerDao;
 import Model.Enroll;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -18,6 +19,9 @@ public class Coures {
     private Connection conn;
 
     public Coures(){
+
+        Button1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        Button2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         JFrame frame = new JFrame();
         frame.setContentPane(panel);
         frame.setVisible(true);

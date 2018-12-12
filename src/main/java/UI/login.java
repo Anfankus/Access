@@ -25,6 +25,8 @@ public class login {
     public login(){
         JFrame frame = new JFrame("登录");
         buttonLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonNoman.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        buttonRegister.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         frame.setContentPane(panel1);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
