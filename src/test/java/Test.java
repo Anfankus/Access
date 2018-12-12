@@ -1,6 +1,7 @@
 import Dao.AdminDao;
 import Dao.CustomerDao;
 import Model.Enroll;
+import Model.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -42,6 +43,11 @@ public class Test {
     String ps="wwwww";
     AdminDao dao=new AdminDao(conn);
     System.out.println(dao.verify(u,ps));
-
+  }
+  @org.junit.Test
+  public void addStudent()throws Exception{
+    Student s=new Student("7001","zhangke",'m',16,5,4.8);
+    AdminDao dao=new AdminDao(conn);
+    System.out.println(dao.addStudent(s));
   }
 }
