@@ -1,5 +1,6 @@
 package Dao;
 
+import Model.Student;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,6 +44,20 @@ public class AdminDao extends CustomerDao{
       x.printStackTrace();
     }
     return false;
+  }
+  public boolean addStudent(Student s) throws Exception {
+    try{
+      Statement stat=conn.createStatement();
+      int rs=stat.executeUpdate(String.format("INSERT INTO student VALUES (%d,'%s','%s',%d,%d,%f);",
+          Integer.parseInt(s.getSid()),s.getSname(),s.getSex(),s.getAge(),s.getYear(),s.getGpa()));
+      return rs==1;
+    }catch (SQLException x){
+      switch (x.getSQLState()){
+        case "23505":
+          throw new Exception("学生学号已存在");
+      }
+      return false;
+    }
   }
   
 }
