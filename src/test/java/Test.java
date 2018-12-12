@@ -19,7 +19,7 @@ public class Test {
   public void enroll(){
     CustomerDao c=new CustomerDao(conn);
     Enroll x=c.queryStudentEnroll(15);
-    System.out.println(x);
+    System.out.println(x.getDname());
   }
 
   @org.junit.Test
@@ -39,7 +39,7 @@ public class Test {
   @org.junit.Test
   public void verify(){
     String u="root2";
-    String ps="wwwwww";
+    String ps="wwwww";
     AdminDao dao=new AdminDao(conn);
     System.out.println(dao.verify(u,ps));
 
